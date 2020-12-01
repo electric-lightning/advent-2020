@@ -46,7 +46,7 @@ public class Day1Part2
         final int numZ = MAGIC_NUMBER - numX - numY;
 
         final Optional<Integer> val = values.stream()
-                .filter(number -> number == numZ)
+                .filter( number -> number == numZ )
                 .findAny();
         if ( val.isEmpty() )
         {
@@ -57,18 +57,18 @@ public class Day1Part2
         }
         else
         {
-            System.out.println(numX + "*" + numY + "*" + numZ + "=" + (numX * numY * numZ));
+            System.out.println( numX + "*" + numY + "*" + numZ + "=" + (numX * numY * numZ) );
             done = true;
         }
     }
 
     private List<Integer> loadData()
     {
-        final InputStream is = getClass().getClassLoader().getResourceAsStream("input" );
+        final InputStream is = getClass().getClassLoader().getResourceAsStream( "input" );
         return new BufferedReader( new InputStreamReader( is, StandardCharsets.UTF_8 ) )
                 .lines()
                 .map( Integer::parseInt )
-                .collect(Collectors.toList());
+                .collect( Collectors.toList() );
     }
 }
 

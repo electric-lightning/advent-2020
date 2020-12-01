@@ -37,21 +37,21 @@ public class Day1
     private void solve()
     {
         final int x = values.get( offset++ );
-        int y = MAGIC_NUMBER - x;
+        final int y = MAGIC_NUMBER - x;
 
         values.stream()
                 .filter( number -> number == y )
                 .findAny()
-                .ifPresentOrElse( number -> System.out.println( x + "*" + y + "=" + ( x*y ) ), this::solve );
+                .ifPresentOrElse( number -> System.out.println( x + "*" + y + "=" + ( x * y ) ), this::solve );
     }
 
     private List<Integer> loadData()
     {
-        final InputStream is = getClass().getClassLoader().getResourceAsStream("input" );
+        final InputStream is = getClass().getClassLoader().getResourceAsStream( "input" );
         return new BufferedReader( new InputStreamReader( is, StandardCharsets.UTF_8 ) )
                 .lines()
                 .map( Integer::parseInt )
-                .collect(Collectors.toList());
+                .collect( Collectors.toList() );
     }
 }
 
