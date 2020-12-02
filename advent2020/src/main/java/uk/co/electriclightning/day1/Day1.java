@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * # Day 1
  *
- * Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle input); apparently, something isn't quite adding up.
+ * Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle day1); apparently, something isn't quite adding up.
  *
  * Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers together.
  *
@@ -47,7 +47,7 @@ public class Day1
 
     private List<Integer> loadData()
     {
-        final InputStream is = getClass().getClassLoader().getResourceAsStream( "input" );
+        final InputStream is = getClass().getClassLoader().getResourceAsStream("day1" );
         return new BufferedReader( new InputStreamReader( is, StandardCharsets.UTF_8 ) )
                 .lines()
                 .map( Integer::parseInt )

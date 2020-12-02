@@ -64,7 +64,7 @@ public class Day1Part2
 
     private List<Integer> loadData()
     {
-        final InputStream is = getClass().getClassLoader().getResourceAsStream( "input" );
+        final InputStream is = getClass().getClassLoader().getResourceAsStream("day1" );
         return new BufferedReader( new InputStreamReader( is, StandardCharsets.UTF_8 ) )
                 .lines()
                 .map( Integer::parseInt )
