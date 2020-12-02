@@ -29,6 +29,9 @@ import java.util.stream.Collectors;
  */
 public class Day2
 {
+    public static final String SPACE = " ";
+    public static final String HYPHEN = "-";
+    public static final String COLON = ":";
     private final List<String> values = loadData();
 
     public static void main( final String[] args )
@@ -42,15 +45,15 @@ public class Day2
 
         values.forEach( input -> {
 
-            final String[] split = input.split(" " );
+            final String[] split = input.split( SPACE );
 
-            final String[] policyOccurrences = split[0].split( "-" );
+            final String[] policyOccurrences = split[0].split( HYPHEN );
             final String policyOccurrenceMin = policyOccurrences[0];
             final String policyOccurrenceMax = policyOccurrences[1];
 
-            final String policyAlpha = split[1].split( ":" )[0];
+            final String policyAlpha = split[1].split( COLON )[0];
 
-            final String originalPassword = split[2];
+            // Get pw and remove all characters other than the character of interest
             final String password = split[2].replaceAll( "[^" + policyAlpha + "]", "" );
 
             final String regex = String.format( "(%s{%s,%s})", policyAlpha, policyOccurrenceMin, policyOccurrenceMax );
@@ -58,10 +61,6 @@ public class Day2
             {
                 goodPasswordCount.getAndIncrement();
             }
-//            else
-//            {
-//                System.out.println( regex + "  " + password + " [ " + originalPassword + " ]" );
-//            }
         });
 
         System.out.println( String.format( "Passwords matching policy %d/%d", goodPasswordCount.get(), values.size() ) );
